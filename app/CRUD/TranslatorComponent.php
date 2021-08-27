@@ -3,9 +3,9 @@
 namespace App\CRUD;
 
 use EasyPanel\Contracts\CRUDComponent;
-use App\Models\Author;
+use App\Models\Translator;
 
-class AuthorComponent implements CRUDComponent
+class TranslatorComponent implements CRUDComponent
 {
     // Manage actions in crud
     public $create = true;
@@ -18,7 +18,7 @@ class AuthorComponent implements CRUDComponent
 
     public function getModel()
     {
-        return Author::class;
+        return Translator::class;
     }
 
     // which kind of data should be showed in list page
@@ -39,8 +39,7 @@ class AuthorComponent implements CRUDComponent
     {
         return [
             'first_name' => 'text',
-            'last_name'  => 'text',
-            'description' => 'ckeditor'
+            'last_name'  => 'text'
         ];
     }
 
@@ -50,8 +49,7 @@ class AuthorComponent implements CRUDComponent
     {
         return [
             'first_name' => 'required|min:2|max:191',
-            'last_name'  => 'required|min:2|max:191',
-            'description' => 'required'
+            'last_name'  => 'required|min:2|max:191'
         ];
     }
 

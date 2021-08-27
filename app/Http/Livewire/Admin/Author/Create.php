@@ -15,8 +15,8 @@ class Create extends Component
     public $description;
     
     protected $rules = [
-        'first_name' => 'required|max:191',
-        'last_name' => 'required|max:191',
+        'first_name' => 'required|min:2|max:191',
+        'last_name' => 'required|min:2|max:191',
         'description' => 'required',        
     ];
 

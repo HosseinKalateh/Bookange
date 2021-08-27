@@ -57,5 +57,7 @@
     "Last_name": "Last_name",
     "Description": "Description",
     "Author": "Author",
-    "Authors": "Authors"
+    "Authors": "Authors",
+    "Translator": "Translator",
+    "Translators": "Translators"
 }
