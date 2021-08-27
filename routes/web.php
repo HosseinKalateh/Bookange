@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Admin Login Routes
+
+Route::get('/admin/login', [AuthController::class, 'showLoginPage']);
+
+Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.auth.login');
