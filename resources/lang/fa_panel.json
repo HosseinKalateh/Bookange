@@ -52,5 +52,10 @@
     "Sort_order": "Sort_order",
     "Category": "Category",
     "Categories": "Categories",
-    "Is_active": "Is_active"
+    "Is_active": "Is_active",
+    "First_name": "First_name",
+    "Last_name": "Last_name",
+    "Description": "Description",
+    "Author": "Author",
+    "Authors": "Authors"
 }
