@@ -61,5 +61,16 @@
     "Translator": "Translator",
     "Translators": "Translators",
     "Publisher": "Publisher",
-    "Publishers": "Publishers"
+    "Publishers": "Publishers",
+    "Picture": "Picture",
+    "Price": "Price",
+    "Category_id": "Category_id",
+    "Publisher_id": "Publisher_id",
+    "ISBN": "ISBN",
+    "Number_of_pages": "Number_of_pages",
+    "Published_at": "Published_at",
+    "Book": "Book",
+    "Books": "Books",
+    "category.name": "category.name",
+    "publisher.name": "publisher.name"
 }
