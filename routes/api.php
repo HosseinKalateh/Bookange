@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\api\v1\BookController;
+use App\Http\Controllers\api\v1\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,12 @@ Route::group(["prefix" => "v1"], function () {
     ##############
     ##############
     Route::apiResource('books', BookController::class)->only(['index', 'show']);
+
+    ##############
+    ##############
+    ##############
+    ### category
+    ###	route
+    ##############
+    Route::apiResource('categories', CategoryController::class)->only(['index', 'show']);
 });

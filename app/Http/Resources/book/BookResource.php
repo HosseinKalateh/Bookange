@@ -3,6 +3,7 @@
 namespace App\Http\Resources\book;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\category\CategoryResource;
 
 class BookResource extends JsonResource
 {
@@ -25,7 +26,7 @@ class BookResource extends JsonResource
             'ISBN'            => $this->ISBN, 
             'number_of_pages' => $this->number_of_pages, 
             'published_at'    => $this->published_at,
-            'category'        => $this->category()->get(['id', 'name']),
+            'category'        => new CategoryResource($this->category),
             'publisher'       => $this->publisher()->get(['id', 'name']),
             'authors'         => $this->authors()->get(['id', 'first_name', 'last_name']),
             'translators'     => $this->translators()->get(['id', 'first_name', 'last_name']),

@@ -23,6 +23,12 @@ trait ApiResponser
     // Show All 
     protected function showAll(Collection $collection, $code = 200)
     {
+      // If Collection Empty
+      if (!count($collection)) {
+        $data = [];
+        return $this->successResponse($data, $code);
+      }
+      
     	$modelResource = $this->getModelResource($collection->first());
     	
     	$data = $modelResource::collection($collection);
