@@ -10,6 +10,8 @@ class Translator extends Model
 {
     use HasFactory;
 
+    protected $hidden = ['pivot'];
+
     protected $fillable = ['first_name', 'last_name'];
 
     // Get FullName 
