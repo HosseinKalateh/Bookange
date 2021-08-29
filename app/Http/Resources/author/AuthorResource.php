@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\publisher;
+namespace App\Http\Resources\author;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PublisherResource extends JsonResource
+class AuthorResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,15 +15,15 @@ class PublisherResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'    => $this->id,
-            'name'  => $this->name,
-            'links' => [
-                [
+            'id'         => $this->id,
+            'first_name' => $this->first_name,
+            'last_name'  => $this->last_name,
+            'links'      => 
+                [   
                     'rel'  => 'self',
                     'type' => 'GET',
-                    'href' => route('publishers.show', $this->id)
+                    'href' => route('authors.show', $this->id)
                 ]
-            ]
         ];
     }
 }
