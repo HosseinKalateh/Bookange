@@ -7,6 +7,7 @@ use App\Http\Controllers\api\v1\BookController;
 use App\Http\Controllers\api\v1\CategoryController;
 use App\Http\Controllers\api\v1\PublisherController;
 use App\Http\Controllers\api\v1\AuthorController;
+use App\Http\Controllers\api\v1\TranslatorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,4 +60,13 @@ Route::group(["prefix" => "v1"], function () {
     ##############
     ##############
     Route::apiResource('authors', AuthorController::class)->only(['index', 'show']);
+
+    ##############
+    ##############
+    ##############
+    ### translator
+    ### route
+    ##############
+    ##############
+    Route::apiResource('translators', TranslatorController::class)->only(['index', 'show']);
 });
