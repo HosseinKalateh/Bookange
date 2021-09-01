@@ -10,6 +10,8 @@ class Publisher extends Model
 {
     use HasFactory;
 
+    const Per_Page = 10;
+
     protected $fillable = ['name'];
 
     ## Relations ##

@@ -10,6 +10,8 @@ class Category extends Model
 {
     use HasFactory;
 
+    const Per_Page = 10;
+
     protected $fillable = ['name', 'sort_order', 'is_active'];
 
     ## Relations ##

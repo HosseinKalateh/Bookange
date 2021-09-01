@@ -10,6 +10,8 @@ class Author extends Model
 {
     use HasFactory;
 
+    const Per_Page = 10;
+
     protected $hidden = ['pivot'];
 
     protected $fillable = ['first_name', 'last_name', 'description'];
