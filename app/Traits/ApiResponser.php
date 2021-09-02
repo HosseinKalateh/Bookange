@@ -31,13 +31,16 @@ trait ApiResponser
       return $this->successResponse($data, $code);
     }
 
+    // Get Model Transformer
+    $transformer = $collection->first()->transformer;
+
     // Paginate
     $collection = $this->paginate($collection, $this->getModelPerpageNumber($collection->first()));
     
     // Transform
-  	$modelResource = $this->getModelResource($collection->first());
-  	
-  	$data = $modelResource::collection($collection);
+    $transformer = $collection->first()->transformer;
+
+    $data = $this->transformData($collection, $transformer);
 
   	return $this->successResponse($data, $code);
   }
@@ -72,6 +75,7 @@ trait ApiResponser
     return $perPage = $modelName::Per_Page;
   }
 
+  // Paginate Data
   private function paginate(Collection $collection, $perPage)
   {
     $page = LengthAwarePaginator::resolveCurrentPage();
@@ -85,6 +89,12 @@ trait ApiResponser
     $paginated->appends(request()->all()); // For add other parameter(like sort_by, ...)
       
     return $paginated;
+  }
+
+  // Transform Data
+  private function transformData($data, $transformer)
+  {
+    return fractal($data, new $transformer)->toArray();
   }
 
 }

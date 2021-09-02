@@ -5,12 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Book;
+use App\Transformers\TranslatorTransformer;
 
 class Translator extends Model
 {
     use HasFactory;
 
     const Per_Page = 10;
+
+    public $transformer = TranslatorTransformer::class;
 
     protected $hidden = ['pivot'];
 

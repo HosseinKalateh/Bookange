@@ -8,12 +8,15 @@ use App\Models\Category;
 use App\Models\Publisher;
 use App\Models\Author;
 use App\Models\Translator;
+use App\Transformers\BookTransformer;
 
 class Book extends Model
 {
     use HasFactory;
 
     const Per_Page = 10;
+
+    public $transformer = BookTransformer::class;
 
     protected $fillable = [
     	'category_id',
