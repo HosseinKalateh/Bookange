@@ -48,21 +48,11 @@ trait ApiResponser
   // Show One 
   protected function showOne(Model $instance, $code = 200)
  	{
-  	$modelResource = $this->getModelResource($instance);
-  	
-  	$data = new $modelResource($instance);
+  	$transformer = $instance->transformer;
+
+    $data = $this->transformData($instance, $transformer);
   	
  		return $this->successResponse($data, $code);
- 	}
-
- 	// Get Model Resource From Model Name
- 	private function getModelResource($model)
- 	{
- 		$fullClass = get_class($model);
-
-  	$modelName = substr($fullClass, 11);
-
-  	return $modelResource = '\\App\\Http\\Resources\\' . strtolower($modelName) . '\\' .$modelName . 'Resource';
  	}
 
   // Get Model Pagination Per Page Number
