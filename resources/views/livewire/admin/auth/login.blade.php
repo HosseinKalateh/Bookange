@@ -155,11 +155,11 @@
                         <form action="{{ route('admin.auth.login') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label class="form-control-label">USERNAME</label>
+                                <label class="form-control-label">USERNAME(admin@bookange.com)</label>
                                 <input type="text" class="form-control" name="email">
                             </div>
                             <div class="form-group">
-                                <label class="form-control-label">PASSWORD</label>
+                                <label class="form-control-label">PASSWORD(123456)</label>
                                 <input type="password" name="password" class="form-control" i>
                             </div>
 
