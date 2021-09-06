@@ -12,7 +12,7 @@
 	- ✅Publisher CRUD
 	- ✅Translator CRUD
 	- ✅Book CRUD
-	- ❌User CRUD
+	- ✅User R(users list)
 	
 - Api
 	- ✅Show Categories
