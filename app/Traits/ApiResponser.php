@@ -87,4 +87,16 @@ trait ApiResponser
     return fractal($data, new $transformer)->toArray();
   }
 
+  // Show Success Message
+  protected function showSuccessMessage($message, $code = 200)
+  {
+    return $this->successResponse(['data' => $message], $code);
+  }
+
+  // Show Error Message
+  protected function showErrorMessage($message, $code = 404)
+  {
+    return $this->errorResponse(['data' => $message], $code);
+  }
+
 }

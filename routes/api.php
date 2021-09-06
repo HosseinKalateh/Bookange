@@ -8,6 +8,7 @@ use App\Http\Controllers\api\v1\CategoryController;
 use App\Http\Controllers\api\v1\PublisherController;
 use App\Http\Controllers\api\v1\AuthorController;
 use App\Http\Controllers\api\v1\TranslatorController;
+use App\Http\Controllers\api\v1\auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,11 +21,39 @@ use App\Http\Controllers\api\v1\TranslatorController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+##############
+##############
+##############
+### auth route
+##############
+##############
+Route::group([
+    "prefix" => "v1/auth",
+    "middleware" => [
+        "throttle:10,1"
+    ]
+], function () {
+    
+    ## User Login
+    Route::post('login', [AuthController::class, 'login']);
+
+    ## User Register
+    Route::post('register', [AuthController::class, 'register']);
 });
 
-Route::group(["prefix" => "v1"], function () {
+Route::group([
+    "prefix" => "v1/auth",
+    "middleware" => [
+        "auth:api"
+    ]
+], function () {
+
+    ## User Logout
+    Route::post('logout', [AuthController::class, 'logout']);
+});
+
+
+Route::group(["prefix" => "v1", "middleware" => 'auth:api'], function () {
 
 	##############
     ##############
