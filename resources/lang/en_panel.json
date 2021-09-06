@@ -72,5 +72,9 @@
     "Book": "Book",
     "Books": "Books",
     "category.name": "category.name",
-    "publisher.name": "publisher.name"
+    "publisher.name": "publisher.name",
+    "Email": "Email",
+    "Is_superuser": "Is_superuser",
+    "User": "User",
+    "Users": "Users"
 }

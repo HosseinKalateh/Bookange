@@ -94,6 +94,22 @@ class CrudsTableSeeder extends Seeder
 	        	],
     		);
 		}
+
+		// User CRUD
+		if (\DB::table('cruds')->where('model', 'User')->doesntExist())
+		{
+			\DB::table('cruds')->insert(
+	    		[
+	        	'name'       => 'user',
+	        	'model'      => 'User',
+	        	'route'      => 'users',
+	        	'active'     => true,
+	        	'built'      => true,
+	        	'created_at' => Carbon::now(),
+	        	'updated_at' => Carbon::now()
+	        	],
+    		);
+		}
     	
     }
 }
