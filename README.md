@@ -25,7 +25,7 @@
 	- ✅Show Translator(books of a translator)
 	- ✅Show Books
 	- ✅Show Book
-	- ❌Authentication
+	- ✅Authentication(laravel-passport)
 	- ❌Show User Profile
 	- ❌Edit User Profile
 	- ❌Add Book To Wishlist
