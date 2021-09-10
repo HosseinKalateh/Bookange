@@ -9,6 +9,7 @@ use App\Http\Controllers\api\v1\PublisherController;
 use App\Http\Controllers\api\v1\AuthorController;
 use App\Http\Controllers\api\v1\TranslatorController;
 use App\Http\Controllers\api\v1\auth\AuthController;
+use App\Http\Controllers\api\v1\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,4 +99,12 @@ Route::group(["prefix" => "v1", "middleware" => 'auth:api'], function () {
     ##############
     ##############
     Route::apiResource('translators', TranslatorController::class)->only(['index', 'show']);
+
+    ##############
+    ##############
+    ##############
+    ### user route
+    ##############
+    ##############
+    Route::apiResource('users', UserController::class)->only(['show']); 
 });
