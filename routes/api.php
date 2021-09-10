@@ -106,5 +106,5 @@ Route::group(["prefix" => "v1", "middleware" => 'auth:api'], function () {
     ### user route
     ##############
     ##############
-    Route::apiResource('users', UserController::class)->only(['show']); 
+    Route::apiResource('users', UserController::class)->only(['show', 'update']); 
 });
