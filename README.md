@@ -27,7 +27,7 @@
 	- ✅Show Book
 	- ✅Authentication(laravel-passport)
 	- ✅Show User Profile
-	- ❌Edit User Profile
+	- ✅Edit User Profile
 	- ❌Add Book To Wishlist
 	- ❌Add Comment For Book
 	- ❌Search In Books
