@@ -69,6 +69,11 @@ class BookTransformer extends TransformerAbstract
                     'rel' => 'wishlist',
                     'type' => 'POST',
                     'href' => route('user.updateWishlist', ['user' => $user, 'book' => $book])
+                ],
+                [
+                    'rel' => 'wishlist',
+                    'type' => 'DELETE',
+                    'href' => route('user.deleteBookFromWishlist', ['user' => $user, 'book' => $book])
                 ]
             ]
         ];

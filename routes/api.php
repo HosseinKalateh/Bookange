@@ -118,5 +118,8 @@ Route::group(["prefix" => "v1", "middleware" => 'auth:api'], function () {
     Route::get('users/{user}/wishlist', [UserController::class, 'showWishlist'])->name('user.showWishlist');
 
     // Add Book To Wishlist
-   Route::post('users/{user}/wishlist/{book}', [UserController::class, 'updateWishlist'])->name('user.updateWishlist');
+    Route::post('users/{user}/wishlist/{book}', [UserController::class, 'updateWishlist'])->name('user.updateWishlist');
+
+    // Delete Book From Wishlist
+    Route::delete('users/{user}/wishlist/{book}', [UserController::class, 'deleteBookFromWishlist'])->name('user.deleteBookFromWishlist');
 });
