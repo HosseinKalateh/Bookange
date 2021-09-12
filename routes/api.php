@@ -115,5 +115,8 @@ Route::group(["prefix" => "v1", "middleware" => 'auth:api'], function () {
     ##############
     ##############
     // Show User Wishlist
-    Route::get('users/{user}/wishlist', [UserController::class, 'showWishlist'])->name(user.showWishlist);
+    Route::get('users/{user}/wishlist', [UserController::class, 'showWishlist'])->name('user.showWishlist');
+
+    // Add Book To Wishlist
+   Route::post('users/{user}/wishlist/{book}', [UserController::class, 'updateWishlist'])->name('user.updateWishlist');
 });
