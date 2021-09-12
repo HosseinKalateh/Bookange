@@ -41,6 +41,8 @@ class BookTransformer extends TransformerAbstract
      */
     public function transform(Book $book)
     {
+        $user = auth()->user();
+
         return [
             'id'              => $book->id, 
             'category_id'     => $book->category_id, 
@@ -56,13 +58,29 @@ class BookTransformer extends TransformerAbstract
             'publisher'       => fractal($book->publisher, new $this->publisherTransformer)->toArray(),
             'authors'         => fractal($book->authors, new $this->authorTransformer)->toArray(),
             'translators'     => fractal($book->translators, new $this->translatorTransformer)->toArray(),
+            'in_wishlist' => $this->inWishlist($user, $book->id),
             'links' => [
                 [
                     'rel' => 'self',
                     'type' => 'GET',
                     'href' => route('books.show', $book->id)
+                ],
+                [
+                    'rel' => 'wishlist',
+                    'type' => 'POST',
+                    'href' => route('user.updateWishlist', ['user' => $user, 'book' => $book])
                 ]
             ]
         ];
+    }
+
+    // Check That A Book Is In Wishlist Or Not
+    private function inWishlist($user, $bookId)
+    {
+        if (!empty(json_decode($user->wishlist)) && in_array($bookId, json_decode($user->wishlist))) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
