@@ -107,4 +107,13 @@ Route::group(["prefix" => "v1", "middleware" => 'auth:api'], function () {
     ##############
     ##############
     Route::apiResource('users', UserController::class)->only(['show', 'update']); 
+
+    ##############
+    ##############
+    ### wishlist
+    ### route
+    ##############
+    ##############
+    // Show User Wishlist
+    Route::get('users/{user}/wishlist', [UserController::class, 'showWishlist'])->name(user.showWishlist);
 });

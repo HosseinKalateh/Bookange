@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email',
         'bio',
         'age',
+        'wishlist',
         'password',
         'is_superuser'
     ];

@@ -35,4 +35,17 @@ class UserController extends ApiController
 
         return $this->showOne($user, 200);
     }
+
+    // Show User Wishlist
+    public function showWishlist(User $user)
+    {
+        $authenticatedUser = auth()->user();
+
+        // Check That Authenticated User Is Same With User
+        if ($user->id == $authenticatedUser->id) {
+            return $this->showOne($user, 200);
+        } else {
+            abort(403, 'This action is unauthorized.');
+        }
+    }
 }

@@ -4,6 +4,8 @@ namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
 use App\Models\User;
+use App\Models\Book;
+use App\Transformers\BookTransformer;
 
 class UserTransformer extends TransformerAbstract
 {
@@ -38,7 +40,16 @@ class UserTransformer extends TransformerAbstract
             'usernmae' => $user->username,
             'email' => $user->email,
             'bio' => $user->bio,
-            'age' => $user->age
+            'age' => $user->age,
+            'wishlist' => $this->getWishlistBooks(json_decode($user->wishlist))
         ];
+    }
+
+    // Get Books By Id 
+    private function getWishlistBooks($wishlist)
+    {
+        $books = Book::find($wishlist);
+
+        return fractal($books, BookTransformer::class);
     }
 }

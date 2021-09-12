@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->text('bio')->nullable();
             $table->integer('age')->nullable();
+            $table->json('wishlist')->nullable();
             $table->boolean('is_superuser')->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
