@@ -30,7 +30,7 @@
 	- ✅Edit User Profile
 	- ✅Show User Wishlist
 	- ✅Add Book To Wishlist
-	- ❌Delete Book From Wishlist
+	- ✅Delete Book From Wishlist
 	- ❌Add Comment For Book
 	- ❌Search In Books
 	- ❌Search In Categories
