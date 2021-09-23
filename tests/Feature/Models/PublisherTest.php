@@ -4,25 +4,18 @@ namespace Tests\Feature\Models;
 
 use App\Models\Book;
 use App\Models\Publisher;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class PublisherTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, HelperModelTesting;
 
-    /**
-     * @test
-     */
-    public function create_publisher()
+    public function model(): Model
     {
-        $data = Publisher::factory()->make()->toArray();
-
-        Publisher::create($data);
-
-        $this->assertDatabaseHas('publishers', $data);
-        $this->assertDatabaseCount('publishers', 1);
+        return new Publisher();
     }
 
     /**

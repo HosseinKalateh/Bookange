@@ -7,25 +7,18 @@ use App\Models\Book;
 use App\Models\Category;
 use App\Models\Publisher;
 use App\Models\Translator;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class BookTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, HelperModelTesting;
 
-    /**
-     * @test
-     */
-    public function create_book()
+    public function model(): Model
     {
-        $data = Book::factory()->make()->toArray();
-
-        Book::create($data);
-
-        $this->assertDatabaseHas('books', $data);
-        $this->assertDatabaseCount('books', 1);
+        return new Book();
     }
 
     /**

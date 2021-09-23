@@ -4,25 +4,18 @@ namespace Tests\Feature\Models;
 
 use App\Models\Author;
 use App\Models\Book;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class AuthorTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, HelperModelTesting;
 
-    /**
-     * @test
-     */
-    public function create_author()
+    public function model(): Model
     {
-        $data = Author::factory()->make()->toArray();
-
-        Author::create($data);
-
-        $this->assertDatabaseHas('authors', $data);
-        $this->assertDatabaseCount('authors', 1);
+       return new Author();
     }
 
     /**

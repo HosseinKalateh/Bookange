@@ -4,25 +4,18 @@ namespace Tests\Feature\Models;
 
 use App\Models\Book;
 use App\Models\Translator;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class TranslatorTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, HelperModelTesting;
 
-    /**
-     * @test
-     */
-    public function create_translator()
+    public function model(): Model
     {
-        $data = Translator::factory()->make()->toArray();
-
-        Translator::create($data);
-
-        $this->assertDatabaseHas('translators', $data);
-        $this->assertDatabaseCount('translators', 1);
+        return new Translator();
     }
 
     /**
