@@ -32,6 +32,20 @@ class UserFactory extends Factory
     }
 
     /**
+     * Indicate that the model's is normal user.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function normal()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'is_superuser' => false,
+            ];
+        });
+    }
+
+    /**
      * Indicate that the model's email address should be unverified.
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory
