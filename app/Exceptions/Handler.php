@@ -98,7 +98,7 @@ class Handler extends ExceptionHandler
        $this->renderable(function (ValidationException $e, $request) {
             
             if ($request->expectsJson()) {
-               return $this->errorResponse(['error' => $e->errors()], 422);
+                return $this->errorResponse($e->errors(), 422);
             }
             
         });

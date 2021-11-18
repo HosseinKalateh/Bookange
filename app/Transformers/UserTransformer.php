@@ -37,7 +37,7 @@ class UserTransformer extends TransformerAbstract
         return [
             'id' => $user->id,
             'name' => $user->name,
-            'usernmae' => $user->username,
+            'username' => $user->username,
             'email' => $user->email,
             'bio' => $user->bio,
             'age' => $user->age,
@@ -46,7 +46,7 @@ class UserTransformer extends TransformerAbstract
     }
 
     // Get Books By Id 
-    private function getWishlistBooks($wishlist)
+    public function getWishlistBooks($wishlist)
     {
         $books = Book::find($wishlist);
 
