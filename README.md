@@ -81,6 +81,13 @@ email:admin@bookange.com
 password:123456
 ~~~
 
+## Test
+Run tests
+
+```php
+php artisan test
+```
+
 ## What do we use in this project?
 - [Laravel EasyPanel](https://github.com/rezaamini-ir/laravel-easypanel)
 
